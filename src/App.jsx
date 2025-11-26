@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import FirebaseSetupBanner from './components/FirebaseSetupBanner';
 import Home from './pages/Home';
 import ServiceDetails from './pages/ServiceDetails';
+import Services from './pages/Services';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MyProfile from './pages/MyProfile';
@@ -34,6 +35,7 @@ export default function App() {
                         React.createElement(Route, { path: "/", element: React.createElement(Home, null) }),
                         React.createElement(Route, { path: "/service/:id", element: React.createElement(ProtectedRoute, null,
                                 React.createElement(ServiceDetails, null)) }),
+            React.createElement(Route, { path: "/services", element: React.createElement(Services, null) }),
                         React.createElement(Route, { path: "/login", element: React.createElement(Login, null) }),
                         React.createElement(Route, { path: "/register", element: React.createElement(Register, null) }),
                         React.createElement(Route, { path: "/forgot-password", element: React.createElement(ForgotPassword, null) }),

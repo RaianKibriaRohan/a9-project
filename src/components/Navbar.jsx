@@ -18,6 +18,7 @@ export default function Navbar() {
     };
     const navLinks = (React.createElement(React.Fragment, null,
         React.createElement(NavLink, { to: "/", className: ({ isActive }) => `hover:text-blue-600 transition-colors ${isActive ? 'text-blue-600' : ''}`, onClick: () => setIsMenuOpen(false) }, "Home"),
+        React.createElement(NavLink, { to: "/services", className: ({ isActive }) => `hover:text-blue-600 transition-colors ${isActive ? 'text-blue-600' : ''}`, onClick: () => setIsMenuOpen(false) }, "Services"),
         user && (React.createElement(NavLink, { to: "/my-profile", className: ({ isActive }) => `hover:text-blue-600 transition-colors ${isActive ? 'text-blue-600' : ''}`, onClick: () => setIsMenuOpen(false) }, "My Profile"))));
     return (React.createElement("nav", { className: "bg-white shadow-md sticky top-0 z-50" },
         React.createElement("div", { className: "container mx-auto px-4" },

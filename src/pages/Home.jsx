@@ -56,6 +56,10 @@ export default function Home() {
             experience: '15 years'
         }
     ];
+    // Show only the top popular services on the home page (top 4 by rating)
+    const popularServices = [...services]
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 4);
     return (React.createElement("div", null,
         React.createElement("section", { className: "relative" },
             React.createElement(Swiper, { modules: [Autoplay, Pagination, Navigation], spaceBetween: 0, slidesPerView: 1, autoplay: { delay: 4000, disableOnInteraction: false }, pagination: { clickable: true }, navigation: true, loop: true, className: "h-[500px] md:h-[600px]" },
@@ -115,7 +119,9 @@ export default function Home() {
             React.createElement("div", { className: "container mx-auto px-4" },
                 React.createElement("h2", { className: "text-center mb-4", "data-aos": "fade-up" }, "Popular Winter Care Services"),
                 React.createElement("p", { className: "text-center text-gray-600 mb-12", "data-aos": "fade-up" }, "Discover our most loved services to keep your pets cozy this winter"),
-                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" }, services.map((service) => (React.createElement(ServiceCard, { key: service.serviceId, service: service })))))),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" }, popularServices.map((service) => (React.createElement(ServiceCard, { key: service.serviceId, service: service })))),
+                React.createElement("div", { className: "text-center mt-8" },
+                    React.createElement("a", { href: "/services", className: "inline-block px-6 py-3 bg-white border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors" }, "View all services"))),
         React.createElement("section", { id: "tips", className: "py-16 bg-blue-50" },
             React.createElement("div", { className: "container mx-auto px-4" },
                 React.createElement("h2", { className: "text-center mb-4", "data-aos": "fade-up" }, "Winter Care Tips for Pets"),
